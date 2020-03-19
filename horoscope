@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <select id="month">
+      <option id="x">Select Birth Month</option>
+      <option id="1">January</option>
+      <option id="2">February</option>
+      <option id="3">March</option>
+    	<option id="4">April</option>
+      <option id="5">May</option>
+      <option id="6">June</option>
+    	<option id="7">July</option>
+      <option id="8">August</option>
+      <option id="9">September</option>
+    	<option id="10">October</option>
+      <option id="11">November</option>
+    	<option id="12">December</option>
+  </select>
+  <input type="text" value="Enter Date" id="day" onClick=value="">
+  <input type="text" value="Enter Year" id="birthyear" onClick=value="">
+  <button type="button" onclick="testing()">Calculate</button>
+  <textarea id="result" rows="10" cols="40" wrap="physical">View your horoscope here</textarea>
+  <button type="button" onclick="clearAll()">Clear</button>
+
+  <script type=text/jscript>
+  var asign;
+  var csign;
+
+  function testing(){
+        var month=document.getElementById("month").selectedIndex;
+        var date=document.getElementById("day").value;
+        var year=document.getElementById("birthyear").value;
+        var monthname=document.getElementById("month").value;
+        var anumber;
+
+        if (month == 1 && date >=20 || month == 2 && date <=18) {asign = "Aquarius"; anumber = 1;}
+        else if (month == 2 && date >=19 || month == 3 && date <=20) {asign = "Pisces"; anumber = 2;}
+        else if (month == 3 && date >=21 || month == 4 && date <=19) {asign = "Aries"; anumber = 3;}
+        else if (month == 4 && date >=20 || month == 5 && date <=20) {asign = "Taurus"; anumber = 4;}
+        else if (month == 5 && date >=21 || month == 6 && date <=21) {asign = "Gemini"; anumber = 5;}
+        else if (month == 6 && date >=22 || month == 7 && date <=22) {asign = "Cancer"; anumber = 6;}
+        else if (month == 7 && date >=23 || month == 8 && date <=22) {asign = "Leo"; anumber = 7;}
+        else if (month == 8 && date >=23 || month == 9 && date <=22) {asign = "Virgo"; anumber = 8;}
+        else if (month == 9 && date >=23 || month == 10 && date <=22) {asign = "Libra"; anumber = 9;}
+        else if (month == 10 && date >=23 || month == 11 && date <=21) {asign = "Scorpio"; anumber = 10;}
+        else if (month == 11 && date >=22 || month == 12 && date <=21) {asign = "Sagittarius"; anumber = 11;}
+        else if (month == 12 && date >=22 || month == 1 && date <=19) {asign = "Capricorn"; anumber = 12;}
+        else {asign = "Huh?"}
+
+        var start = 1901;
+        var x = (start - year) % 12;
+        if (x == 1 || x == -11) {csign = "Rat";}
+        else if (x == 0) {csign = "Ox";}
+        else if (x == 11 || x == -1) {csign = "Tiger";}
+        else if (x == 10 || x == -2) {csign = "Rabbit";}
+        else if (x == 9 || x == -3)  {csign = "Dragon";}
+        else if (x == 8 || x == -4)  {csign ="Snake";}
+        else if (x == 7 || x == -5)  {csign = "Horse";}
+        else if (x == 6 || x == -6)  {csign = "Sheep";}
+        else if (x == 5 || x == -7)  {csign = "Monkey";}
+        else if (x == 4 || x == -8)  {csign = "Cock";}
+        else if (x == 3 || x == -9)  {csign = "Dog";}
+        else if (x == 2 || x == -10)  {csign = "Boar";}
+        else {asign = "Huh?"}
+
+        var ahoroscope=new makeArray(13);
+
+        var a1="Aquarius ~ The Water Bearer\nJanuary 21 to February 19\n\nYour depth of character lends itself to this personal motto:\n\nReflection and growth.";
+        var a2="Pisces ~ The Fish\nFebruary 20 to March 20\n\nGood natured, compassionate and sensitive, your motto might be:\n\nAll for one, and one for all.";
+        var a3="Aries ~ The Ram\nMarch 21 to April 20\n\nAs an independent thinker, your motto might be:\n\nChallenge me.";
+        var a4="Taurus ~ The Bull\nApril 21 to May 20 \n\nWith determination like yours, your motto might be:\n\nPress toward the goal.";
+        var a5="Gemini ~ The Twins \nMay 21 to June 21 \n\nInventive and versatile, you motto might be:\n\nDream it, make it happen.";
+        var a6="Cancer ~ The Crab \nJune 22 to July 22 \n\nYour sense of self means your motto could be:\n\nKnow thyself and prosper.";
+        var a7="Leo ~ The Lion \nJuly 23 to August 22 \n\nAmbitious and strong willed, your motto could be: \n\nEver onward!";
+        var a8="Virgo ~ The Virgin \nAugust 23 to September 22 \n\nSensitive and intelligent, your motto could be: \n\nSuccess in teamwork.";
+        var a9="Libra ~ The Scales \nSeptember 23 to October 22 \n\nMore civilized than most, your motto could be: \n\nDignity and honor.";
+        var a10="Scorpio ~ The Scorpion\nOctober 23 to November 22 \n\nYour quiet intensity means your motto could be: \n\nLeadership by example.";
+        var a11="Sagittarius ~ The Archer\nNovember 23 to December 21 \n\nWith your innate positive outlook, your motto could be: \n\nConceive and believe.";
+        var a12="Capricorn ~ The Goat\nDecember 23 to January 20 \n\nSelf-assured and hardworking, your motto might be:\n\nCool, calm and dedicated.";
+
+        ahoroscope[0]="Error";
+        ahoroscope[1]=a1;
+        ahoroscope[2]=a2;
+        ahoroscope[3]=a3;
+        ahoroscope[4]=a4;
+        ahoroscope[5]=a5;
+        ahoroscope[6]=a6;
+        ahoroscope[7]=a7;
+        ahoroscope[8]=a8;
+        ahoroscope[9]=a9;
+        ahoroscope[10]=a10;
+        ahoroscope[11]=a11;
+        ahoroscope[12]=a12;
+
+        var aresult=ahoroscope[anumber];
+        document.getElementById("result").value=aresult;
+        }
+
+  function clearAll(){
+        document.getElementById("month").value="Select Birth Month";
+        document.getElementById("day").value="Enter Date";
+        document.getElementById("birthyear").value="Enter Year";
+        document.getElementById("result").value="View your horoscope here";
+        }
+
+  </script>
+</body>
+</html>
